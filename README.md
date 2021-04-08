@@ -6,22 +6,16 @@ The container must support the following operations :
 	
 1. Insert element at position i. It is guaranteed that i <= size, i.e. the new element is inserted at the beginning, middle or end of the sequence, but not at any position beyond. When inserting, all old elements from the i-th position must be shifted to the right.
 	Example :
-	sequence :
-	1 2 3 4 5
-	operation :
-	insert 0 at position 2
-	result :
-	1 2 0 3 4 5
+	sequence :	1 2 3 4 5
+	operation :	insert 0 at position 2
+	result :	1 2 0 3 4 5
 
 2.  Delete an element from position i. It is guaranteed that i < size, i.e. an existing element is deleted. Other old elements after the deleted one should be shifted to the left.
 
 	Example :
-	sequence :
-	1 2 3 4 5
-	operation :
-	delete from position 2
-	result :
-	1 2 4 5
+	sequence :	1 2 3 4 5
+	operation :	delete from position 2
+	result :	1 2 4 5
   
 3. Get the value of the element at position i (in two variants: as a constant reference or as a reference allowing to overwrite the value).
 
