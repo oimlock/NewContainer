@@ -14,7 +14,7 @@ int main() {
 #endif
 
 	int n;
-	NewContainer c;
+	IContainer* c = new NewContainer;
 
 	cin >> n;
 
@@ -24,37 +24,37 @@ int main() {
 		if (command == 0) {
 			int i;
 			cin >> i;
-			cout << "element " << i << ' ' << c[i] << endl;
+			cout << "element " << i << ' ' << c->get(i) << endl;
 		}
 		else if (command == 1) {
 			int i, x;
 			cin >> i >> x;
-			c.insert(i, x);
+			c->insert(i, x);
 		}
 		else if (command == 2) {
 			int i;
 			cin >> i;
-			c.erase(i);
+			c->erase(i);
 		}
 		else if (command == 3) {
 			int i, x;
 			cin >> i >> x;
-			c[i] = x;
+			c->set(i, x);
 		}
 		else if (command == 4) {
-			cout << "size " << c.size() << endl;
+			cout << "size " << c->size() << endl;
 		}
 		else if (command == 5) {
-			cout << "empty " << c.empty() << endl;
+			cout << "empty " << c->empty() << endl;
 		}
 		else if (command == 6) {
-			c.clear();
+			c->clear();
 		}
-		else if (command == 7) {
-			int l, r;
-			cin >> l >> r;
-			cout << "summ " << l << ' ' << r << ' ' << c.summ_range(l, r) << endl;
-		}
+		//else if (command == 7) {
+		//	int l, r;
+		//	cin >> l >> r;
+		//	cout << "summ " << l << ' ' << r << ' ' << c->summ_range(l, r) << endl;
+		//}
 	}
 
 	return 0;

@@ -1,45 +1,44 @@
 #pragma once
 
 #include <vector>
-#include "IContainer.h"
 
 using std::vector;
 
-class NewContainer: public IContainer {
+class IContainer {
 public:
 
-	virtual int get(int i) override {
+	virtual int get(int i) = 0 {
 		return container_[i];
 	}
 
-	void insert(int i, int x) override {
+	virtual void insert(int i, int x) = 0 {
 		container_.insert(container_.begin() + i, x);
 		//k_ = sqrt(container_.size());
 		//container_sqrt_.resize((container_.size() + k_ - 1) / k_);
-		//rebalance();
+		////rebalance();
 	}
 
-	void erase(int i) override {
+	virtual void erase(int i) = 0 {
 		container_.erase(container_.begin() + i);
 	}
 
-	void set(int i, int x) override {
+	virtual void set(int i, int x) = 0 {
 		container_[i] = x;
 	}
 
-	int size() override {
+	virtual int size() = 0 {
 		return container_.size();
 	}
 
-	int empty() override {
+	virtual int empty() = 0 {
 		return !container_.empty();
 	}
 
-	void clear() override {
+	virtual void clear() = 0 {
 		container_.clear();
 	}
 
-	//int summ_range(int left, int right) override {
+	//virtual int summ_range(int left, int right) = 0 {
 	//	section_.left = left;
 	//	section_.right = right;
 	//	if (section_.left / k_ == section_.right / k_) {
