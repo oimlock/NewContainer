@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "VectorContainer.h"
+#include "ListContainer.h"
 
 using std::cin;
 using std::cout;
@@ -13,7 +14,7 @@ int main() {
 #endif
 
 	int n;
-	oimlock::IContainer* c = new oimlock::VectorContainer;
+	oimlock::IContainer* c = new oimlock::ListContainer;
 
 	cin >> n;
 
