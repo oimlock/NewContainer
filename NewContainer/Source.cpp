@@ -1,8 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
-#include <vector>
-#include "NewContainer.h"
+#include "VectorContainer.h"
 
 using std::cin;
 using std::cout;
@@ -14,7 +13,7 @@ int main() {
 #endif
 
 	int n;
-	IContainer* c = new NewContainer;
+	oimlock::IContainer* c = new oimlock::VectorContainer;
 
 	cin >> n;
 
