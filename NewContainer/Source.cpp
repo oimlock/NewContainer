@@ -45,16 +45,16 @@ int main() {
 			cout << "size " << c->size() << endl;
 		}
 		else if (command == 5) {
-			cout << "empty " << c->empty() << endl;
+			cout << "empty " << (c->empty() ? 1 : 0) << endl;
 		}
 		else if (command == 6) {
 			c->clear();
 		}
-		//else if (command == 7) {
-		//	int l, r;
-		//	cin >> l >> r;
-		//	cout << "summ " << l << ' ' << r << ' ' << c->summ_range(l, r) << endl;
-		//}
+		else if (command == 7) {
+			int l, r;
+			cin >> l >> r;
+			cout << "summ " << l << ' ' << r << ' ' << c->summ_range(l, r) << endl;
+		}
 	}
 
 	return 0;
