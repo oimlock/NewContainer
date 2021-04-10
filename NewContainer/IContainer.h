@@ -1,8 +1,6 @@
 #pragma once
 
-#include <vector>
-
-using std::vector;
+namespace oimlock {
 
 class IContainer {
 public:
@@ -15,3 +13,4 @@ public:
 	virtual void clear() = 0;
 	virtual int summ_range(int left, int right) = 0;
 };
+}
