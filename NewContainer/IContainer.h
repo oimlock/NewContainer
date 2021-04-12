@@ -1,10 +1,6 @@
 #pragma once
 
-#include <vector>
-
 namespace oimlock {
-
-using std::vector;
 
 class IContainer {
 public:

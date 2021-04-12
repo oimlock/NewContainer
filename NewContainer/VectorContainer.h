@@ -9,7 +9,6 @@ using std::vector;
 
 class VectorContainer : public IContainer {
 public:
-
 	VectorContainer();
 	int get(int i) override;
 	void insert(int i, int x) override;
@@ -21,7 +20,7 @@ public:
 	int summ_range(int left, int right);
 
 private:
-	vector <int> container_;
+	std::vector <int> container_;
 };
 
 }
