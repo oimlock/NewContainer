@@ -1,7 +1,7 @@
 #pragma once
 
-#include "IContainer.h"
 #include <list>
+#include "IContainer.h"
 
 namespace oimlock {
 
@@ -20,5 +20,5 @@ public:
 private:
 	std::list <int> container_;
 };
-}
 
+}

@@ -1,8 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS
 
+#include <iostream>
+#include <vector>
 #include "VectorContainer.h"
 #include "ListContainer.h"
-#include <iostream>
 
 using std::cin;
 using std::cout;

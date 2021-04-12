@@ -1,9 +1,11 @@
 #pragma once
 
-#include "IContainer.h"
 #include <vector>
+#include "IContainer.h"
 
 namespace oimlock {
+
+using std::vector;
 
 class VectorContainer : public IContainer {
 public:
@@ -20,4 +22,5 @@ public:
 private:
 	std::vector <int> container_;
 };
+
 }
