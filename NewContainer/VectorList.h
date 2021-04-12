@@ -18,18 +18,17 @@ public:
 	void clear() override;
 	int summ_range(int left, int right);
 
-
 private:
-	std::vector <std::list<int>> container_;
-	std::vector <int> summ_;
-	int k_;
-	int size_;
-
 	void rebalance_k_new();
 	void rebalance_insert(int i);
 	void rebalance_erase(int i);
 	int summ_in_one_section(int l, int r);
 	int summ_with_diff_sections(int l, int r);
+
+	std::vector <std::list<int>> container_;
+	std::vector <int> summ_;
+	int k_;
+	int size_;
 };
 
 }

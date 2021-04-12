@@ -1,9 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS
 
+#include <iostream>
 #include "VectorContainer.h"
 #include "ListContainer.h"
 #include "VectorList.h"
-#include <iostream>
 
 using std::cin;
 using std::cout;
@@ -15,6 +15,7 @@ int main() {
 #endif
 
 	int n;
+
 	oimlock::IContainer* c = new oimlock::VectorList;
 
 	cin >> n;

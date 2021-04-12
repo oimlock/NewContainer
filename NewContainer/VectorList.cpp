@@ -95,7 +95,7 @@ int VectorList::summ_range(int l, int r) {
 	return 0;
 }
 
-//==================private==================================
+// ================== private ===============================
 
 void VectorList::rebalance_k_new() {
 	std::vector <int> new_container(size_);
@@ -149,15 +149,15 @@ int VectorList::summ_with_diff_sections(int l, int r) {
 	d.right = r / k_ - 1;
 	int summ = 0;
 
-	for (int i = d.left; i <= d.right; ++i) { // основное тело
+	for (int i = d.left; i <= d.right; ++i) { // central part 
 		summ += summ_[i];
 	}
-	for (int i = l; i < d.left * k_; ++i) { // левый хвост
+	for (int i = l; i < d.left * k_; ++i) { // left part
 		auto it = container_[i / k_].begin();
 		advance(it, i% k_);
 		summ += *it;
 	}
-	for (int i = (d.right + 1) * k_; i <= r; ++i) { // правый хвост
+	for (int i = (d.right + 1) * k_; i <= r; ++i) { // right part
 		auto it = container_[i / k_].begin();
 		advance(it, i % k_);
 		summ += *it;
