@@ -20,4 +20,5 @@ public:
 private:
 	std::vector <int> container_;
 };
+
 }

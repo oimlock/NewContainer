@@ -2,6 +2,7 @@
 
 #include "VectorContainer.h"
 #include "ListContainer.h"
+#include "VectorList.h"
 #include <iostream>
 
 using std::cin;
@@ -14,7 +15,7 @@ int main() {
 #endif
 
 	int n;
-	oimlock::IContainer* c = new oimlock::ListContainer;
+	oimlock::IContainer* c = new oimlock::VectorList;
 
 	cin >> n;
 
@@ -24,7 +25,7 @@ int main() {
 		if (command == 0) {
 			int i;
 			cin >> i;
-			cout << "element " << i << ' ' << c->get(i) << endl;
+			cout << "element " << i << " is " << c->get(i) << endl;
 		}
 		else if (command == 1) {
 			int i, x;
@@ -53,7 +54,7 @@ int main() {
 		else if (command == 7) {
 			int l, r;
 			cin >> l >> r;
-			cout << "summ " << l << ' ' << r << ' ' << c->summ_range(l, r) << endl;
+			cout << "summ from " << l << " to " << r << " is " << c->summ_range(l, r) << endl;
 		}
 	}
 

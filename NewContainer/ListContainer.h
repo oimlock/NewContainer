@@ -20,5 +20,6 @@ public:
 private:
 	std::list <int> container_;
 };
+
 }
 

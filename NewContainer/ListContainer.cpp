@@ -51,4 +51,5 @@ int ListContainer::summ_range(int left, int right) {
 	}
 	return summ;
 }
+
 }

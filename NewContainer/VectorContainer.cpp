@@ -40,4 +40,5 @@ int VectorContainer::summ_range(int left, int right) {
 	}
 	return summ;
 }
+
 }
