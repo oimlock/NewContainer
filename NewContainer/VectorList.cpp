@@ -15,10 +15,9 @@ int VectorList::get(int i) {
 
 void VectorList::insert(int i, int x) {
 	if (container_.empty()) {
-		container_.resize(1);
+		container_.resize(2);
 		container_[0].push_back(x);
 		++size_;
-		container_.resize(2);
 		k_ = 2;
 		summ_.resize(2);
 		summ_[0] = x;
