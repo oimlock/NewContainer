@@ -14,7 +14,7 @@ int VectorList::get(int i) {
 }
 
 void VectorList::insert(int i, int x) {
-	if (container_.empty()) {
+	if (empty()) {
 		container_.resize(2);
 		container_[0].push_back(x);
 		++size_;
@@ -37,7 +37,7 @@ void VectorList::insert(int i, int x) {
 	if (sqrt(size_) >= k_) {
 		rebalance_k_new();
 	}
-
+	return;
 }
 
 void VectorList::erase(int idx) {
@@ -51,9 +51,10 @@ void VectorList::erase(int idx) {
 			rebalance_erase(i);
 		}
 	}
-	if (sqrt(size_) < (k_ - 1)) {
+	if (size_ == (k_ - 1) * (k_ - 1)) {
 		rebalance_k_new();
 	}
+	return;
 }
 
 void VectorList::set(int i, int x) {
@@ -63,6 +64,7 @@ void VectorList::set(int i, int x) {
 	summ_[i / k_] += x;
 	container_[i / k_].insert(it, x);
 	container_[i / k_].erase(it);
+	return;
 }
 
 int VectorList::size() {
@@ -71,10 +73,10 @@ int VectorList::size() {
 
 bool VectorList::empty() {
 	if (size_ == 0) {
-		return false;
+		return true;
 	}
 	else {
-		return true;
+		return false;
 	}
 }
 
@@ -82,6 +84,7 @@ void VectorList::clear() {
 	container_.clear();
 	size_ = 0;
 	k_ = 1;
+	return;
 }
 
 int VectorList::summ_range(int l, int r) {
@@ -97,30 +100,29 @@ int VectorList::summ_range(int l, int r) {
 // ================== private ===============================
 
 void VectorList::rebalance_k_new() {
-	std::vector <int> new_container(size_);
-	for (int i = 0; i < size_; ++i) {
-		auto it = container_[i / k_].begin();
-		advance(it, i % k_);
-		new_container[i] = *it;
-	}
-
-	if (sqrt(size_) >= k_) {
+	if (size_ >= k_ * k_) {
 		++k_;
 	}
 	else {
 		--k_;
 	}
-	container_.clear();
-	container_.resize(k_);
-	summ_.clear();
-	summ_.resize(k_);
 
-	for (int i = 0; i < size_; ++i) {
-		auto it = container_[i / k_].begin();
-		advance(it, i % k_);
-		container_[i / k_].insert(it, new_container[i]);
-		summ_[i / k_] += new_container[i];
+	std::vector <std::list <int>> new_container(k_);
+	std::vector <int> new_summ(k_);
+	int list_filled = 0;
+
+	for (int i = 0; i < container_.size(); ++i) {
+		for (auto it = container_[i].begin(); it != container_[i].end(); ++it) {
+			new_container[list_filled].push_back(*it);
+			new_summ[list_filled] += *it;
+			if (new_container[list_filled].size() == k_) {
+				++list_filled;
+			}
+		}
 	}
+	swap(container_, new_container);
+	swap(summ_, new_summ);
+	return;
 }
 
 void VectorList::rebalance_insert(int i) {
@@ -128,6 +130,7 @@ void VectorList::rebalance_insert(int i) {
 	summ_[i + 1] += container_[i + 1].front();
 	container_[i].pop_back();
 	summ_[i] -= container_[i + 1].front();
+	return;
 }
 
 void VectorList::rebalance_erase(int i) {
@@ -135,6 +138,7 @@ void VectorList::rebalance_erase(int i) {
 	summ_[i] += container_[i].back();
 	container_[i + 1].pop_front();
 	summ_[i + 1] -= container_[i].back();
+	return;
 }
 
 struct Range {

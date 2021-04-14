@@ -26,7 +26,7 @@ int VectorContainer::size() {
 }
 
 bool VectorContainer::empty() {
-	return !container_.empty();
+	return container_.empty();
 }
 
 void VectorContainer::clear() {
