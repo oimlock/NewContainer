@@ -142,10 +142,12 @@
     <ClCompile Include="ListContainer.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="VectorContainer.cpp" />
+    <ClCompile Include="VectorList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IContainer.h" />
     <ClInclude Include="ListContainer.h" />
+    <ClInclude Include="VectorList.h" />
     <ClInclude Include="VectorContainer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

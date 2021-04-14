@@ -35,7 +35,7 @@ int ListContainer::size() {
 }
 
 bool ListContainer::empty() {
-	return !container_.empty();
+	return container_.empty();
 }
 
 void ListContainer::clear() {

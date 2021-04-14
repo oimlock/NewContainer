@@ -5,8 +5,6 @@
 
 namespace oimlock {
 
-using std::vector;
-
 class VectorContainer : public IContainer {
 public:
 	VectorContainer();
