@@ -14,10 +14,25 @@ int main() {
 	freopen("input.txt", "r", stdin);
 #endif
 
+	int container_type;
+	cin >> container_type;
+
+	oimlock::IContainer* c0 = new oimlock::ListContainer;
+	oimlock::IContainer* c1 = new oimlock::ListContainer;
+	oimlock::IContainer* c2 = new oimlock::VectorList;
+	oimlock::IContainer* c = 0;
+
+	if (container_type == 0) {
+		c = c0;
+	}
+	else if (container_type == 1) {
+		c = c1;
+	}
+	else if (container_type == 2) {
+		c = c2;
+	}
+
 	int n;
-
-	oimlock::IContainer* c = new oimlock::VectorList;
-
 	cin >> n;
 
 	for (int k = 0; k < n; ++k) {
