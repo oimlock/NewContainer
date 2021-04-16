@@ -17,19 +17,16 @@ int main() {
 	int container_type;
 	cin >> container_type;
 
-	oimlock::IContainer* c0 = new oimlock::ListContainer;
-	oimlock::IContainer* c1 = new oimlock::ListContainer;
-	oimlock::IContainer* c2 = new oimlock::VectorList;
-	oimlock::IContainer* c = 0;
+	oimlock::IContainer* c = nullptr;
 
 	if (container_type == 0) {
-		c = c0;
+		c = new oimlock::VectorContainer;
 	}
 	else if (container_type == 1) {
-		c = c1;
+		c = new oimlock::ListContainer;
 	}
 	else if (container_type == 2) {
-		c = c2;
+		c = new oimlock::VectorList;
 	}
 
 	int n;
@@ -73,6 +70,8 @@ int main() {
 			cout << "summ from " << l << " to " << r << " is " << c->summ_range(l, r) << endl;
 		}
 	}
+
+	delete c;
 
 	return 0;
 }
