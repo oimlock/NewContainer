@@ -18,7 +18,7 @@ int main() {
 	int container_type;
 	cin >> container_type;
 
-	std::unique_ptr <oimlock::IContainer> c = nullptr;
+	std::unique_ptr <oimlock::IContainer> c;
 
 	if (container_type == 0) {
 		c = std::make_unique <oimlock::VectorContainer> ();
