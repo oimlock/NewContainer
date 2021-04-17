@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
+#include <memory>
 #include "VectorContainer.h"
 #include "ListContainer.h"
 #include "VectorList.h"
@@ -17,16 +18,16 @@ int main() {
 	int container_type;
 	cin >> container_type;
 
-	oimlock::IContainer* c = nullptr;
+	std::unique_ptr <oimlock::IContainer> c = nullptr;
 
 	if (container_type == 0) {
-		c = new oimlock::VectorContainer;
+		c = std::make_unique <oimlock::VectorContainer> ();
 	}
 	else if (container_type == 1) {
-		c = new oimlock::ListContainer;
+		c = std::make_unique <oimlock::ListContainer> ();
 	}
 	else if (container_type == 2) {
-		c = new oimlock::VectorList;
+		c = std::make_unique <oimlock::VectorList> ();
 	}
 
 	int n;
