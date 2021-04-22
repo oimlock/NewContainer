@@ -7,3 +7,7 @@ CMakeSettings.json
 # Build directories
 bin/
 build/
+
+# Misc
+*.xlsx
+TaskContainer.txt

@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <memory>
+#include <chrono>
 #include "VectorContainer.h"
 #include "ListContainer.h"
 #include "VectorList.h"
@@ -32,6 +33,7 @@ int main() {
 
 	int n;
 	cin >> n;
+	auto t1 = std::chrono::high_resolution_clock::now();
 
 	for (int k = 0; k < n; ++k) {
 		int command;
@@ -71,6 +73,9 @@ int main() {
 			cout << "summ from " << l << " to " << r << " is " << c->summ_range(l, r) << endl;
 		}
 	}
+	auto t2 = std::chrono::high_resolution_clock::now();
+	int int_ms = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count();
+	cout << endl << int_ms << " ms " << endl;
 
 	return 0;
 }
