@@ -9,5 +9,5 @@ bin/
 build/
 
 # Misc
-.xlsx/
-TaskContainer.txt/
+*.xlsx
+TaskContainer.txt
