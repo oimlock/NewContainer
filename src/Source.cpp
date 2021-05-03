@@ -21,14 +21,20 @@ int main() {
 
 	std::unique_ptr <oimlock::IContainer> c;
 
-	if (container_type == 0) {
-		c = std::make_unique <oimlock::VectorContainer> ();
-	}
-	else if (container_type == 1) {
-		c = std::make_unique <oimlock::ListContainer> ();
-	}
-	else if (container_type == 2) {
-		c = std::make_unique <oimlock::VectorList> ();
+	switch (container_type) 
+	{
+	case 0: 
+		c = std::make_unique <oimlock::VectorContainer>();
+		cout << "VectorContainer\n";
+		break;
+	case 1:
+		c = std::make_unique <oimlock::ListContainer>();
+		cout << "ListContainer\n";
+		break;
+	case 2:
+		c = std::make_unique <oimlock::VectorList>();
+		cout << "VectorList\n";
+		break;
 	}
 
 	int n;
