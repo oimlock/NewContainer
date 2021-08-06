@@ -1,29 +1,32 @@
 #define _CRT_SECURE_NO_WARNINGS
+#define _SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING
 
 #include <iostream>
 #include <memory>
 #include <chrono>
+#include <string>
+#include <experimental/filesystem>
 #include "VectorContainer.h"
 #include "ListContainer.h"
 #include "VectorList.h"
 
+namespace fs = std::experimental::filesystem;
+using namespace fs;
 using std::cin;
 using std::cout;
 using std::endl;
 
-int main() {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-#endif
-
+void test(const fs::path & p) {
+	freopen(p.u8string().c_str(), "r", stdin);
+	
 	int container_type;
 	cin >> container_type;
 
 	std::unique_ptr <oimlock::IContainer> c;
 
-	switch (container_type) 
+	switch (container_type)
 	{
-	case 0: 
+	case 0:
 		c = std::make_unique <oimlock::VectorContainer>();
 		cout << "VectorContainer\n";
 		break;
@@ -82,6 +85,16 @@ int main() {
 	auto t2 = std::chrono::high_resolution_clock::now();
 	int int_ms = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count();
 	cout << endl << int_ms << " ms " << endl;
+}
+
+int main() {
+    for (auto p : directory_iterator(fs::current_path())) {
+		fs::path current_filename = p;
+		if (fs::is_regular_file(p) && current_filename.extension() == ".in") {
+			cout << p;
+			test(p);
+		}
+    }
 
 	return 0;
 }
