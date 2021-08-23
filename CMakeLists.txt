@@ -1,26 +1,14 @@
-project(NewContainer)
+project(pet_game)
 cmake_minimum_required(VERSION 3.18.1)
 
 set(HEADERS
-    include/IContainer.h
-    include/ListContainer.h
-	include/VectorContainer.h
-	include/VectorList.h	
+    include/gameEnviroment.h
 )
 
 set(SOURCES
-    src/ListContainer.cpp
+    src/gameEnviroment.cpp
     src/Source.cpp
-    src/VectorContainer.cpp
-	src/VectorList.cpp
 )
 
 add_executable(demo ${SOURCES} ${HEADERS})
 target_include_directories(demo PUBLIC include)
-
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/1.in
-    DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/)
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/2.in
-    DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/)
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/3.in
-    DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/)
